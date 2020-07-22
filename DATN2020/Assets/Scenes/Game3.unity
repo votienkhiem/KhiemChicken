@@ -2564,7 +2564,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3936,8 +3936,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0.5000076, y: 0.18000007}
+  m_SizeDelta: {x: -1, y: -0.17999935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &741355258
 GameObject:
@@ -5078,8 +5078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.3499985, y: -0.36000013}
+  m_SizeDelta: {x: -2.7000122, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127554840
 MonoBehaviour:
@@ -6449,6 +6449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1290715225530138, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     - target: {fileID: 4096975540831286, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
@@ -6922,10 +6926,10 @@ MonoBehaviour:
   AttackDame: 20
   enrangeAttackdame: 40
   attackoffset: {x: 0, y: 0, z: 0}
-  attackrange: 1
+  attackrange: 2
   attackmask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!114 &1620228665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7112,8 +7116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.69, y: 0}
-  m_SizeDelta: {x: 19.371872, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.53999996}
+  m_SizeDelta: {x: -0.013687134, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674737738
 MonoBehaviour:
@@ -7641,7 +7645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.03, y: -0.03}
+  m_AnchoredPosition: {x: -2.88, y: -0.13}
   m_SizeDelta: {x: 1.5, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1767178399

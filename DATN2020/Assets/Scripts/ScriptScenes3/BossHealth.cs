@@ -26,7 +26,7 @@ public class BossHealth : MonoBehaviour
     }
     void Die()
     {
-        // Instantiate(deatheffect, transform.position, quaternion.identity);
+         Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     //

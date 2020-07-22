@@ -17,6 +17,7 @@ TagManager:
   - Shoe
   - sound
   - soundbom
+  - Boss
   layers:
   - Default
   - TransparentFX
