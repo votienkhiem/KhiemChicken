@@ -2758,7 +2758,7 @@ GameObject:
   - component: {fileID: 445826439}
   - component: {fileID: 445826440}
   - component: {fileID: 445826441}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6926,10 +6926,10 @@ MonoBehaviour:
   AttackDame: 20
   enrangeAttackdame: 40
   attackoffset: {x: 0, y: 0, z: 0}
-  attackrange: 2
+  attackrange: 3
   attackmask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
 --- !u!114 &1620228665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6945,6 +6945,8 @@ MonoBehaviour:
   health: 1000
   deatheffect: {fileID: 3013276487834985530, guid: 52f8144dc75ee134c815c633d2520550,
     type: 3}
+  dialogHealth: {fileID: 439243595}
+  dialogHeart: {fileID: 1767178397}
   isInvulnerable: 0
   slider: {fileID: 439243597}
 --- !u!114 &1620228666

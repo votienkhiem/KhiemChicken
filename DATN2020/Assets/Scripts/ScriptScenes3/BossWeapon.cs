@@ -9,7 +9,7 @@ public class BossWeapon : MonoBehaviour
     public int enrangeAttackdame = 40;
     //
     public Vector3 attackoffset;
-    public float attackrange = 1f;
+    public float attackrange = 2f;
 
     public LayerMask attackmask;
     public void Attack()

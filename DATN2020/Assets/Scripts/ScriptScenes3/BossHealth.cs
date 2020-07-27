@@ -6,7 +6,7 @@ public class BossHealth : MonoBehaviour
 {
     public int health = 1000;
     public GameObject deatheffect;
-
+    public GameObject dialogHealth, dialogHeart;
 
     public bool isInvulnerable = false; 
     public void TakeDame(int Damage)
@@ -26,6 +26,8 @@ public class BossHealth : MonoBehaviour
     }
     void Die()
     {
+        dialogHealth.SetActive(false);
+        dialogHeart.SetActive(false);
          Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

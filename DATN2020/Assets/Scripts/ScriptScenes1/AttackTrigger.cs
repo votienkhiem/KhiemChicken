@@ -15,7 +15,7 @@ public class AttackTrigger : MonoBehaviour
         }
         if(col.isTrigger !=true && col.CompareTag("Boss"))
         {
-            col.SendMessageUpwards("TakeDame", dmg * 3);
+            col.SendMessageUpwards("TakeDame", dmg * 2);
         }
     }
 }
