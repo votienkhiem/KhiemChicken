@@ -76,11 +76,11 @@ public class opposum4 : MonoBehaviour
             //player.KnockbackOpposum(200f, player.transform.position);
             if (col.transform.position.x < transform.position.x)
             {
-                player.Knockbackop(-90f, player.transform.position, true);
+                player.Knockbackop(10f, true);
             }
             else
             {
-                player.Knockbackop(90f, player.transform.position, false);
+                player.Knockbackop(10f, false);
             }
         }
     }

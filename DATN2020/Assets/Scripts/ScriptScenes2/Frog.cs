@@ -133,12 +133,12 @@ public class Frog : MonoBehaviour
             
             if (col.transform.position.x > transform.position.x)
             {
-                player.Knockbackop(30f, player.transform.position, false);
+                player.Knockbackop(10f, false);
 
             }
             else
             {
-                player.Knockbackop(-30f, player.transform.position, true);
+                player.Knockbackop(10f, true);
             }
         }
     }

@@ -21,7 +21,16 @@ public class BossWeapon : MonoBehaviour
         Collider2D colinfo = Physics2D.OverlapCircle(pos, attackrange, attackmask);
         if (colinfo != null)
         {
-            colinfo.GetComponent<Player>().Damage(AttackDame);
+            Player hit = colinfo.GetComponent<Player>();
+            hit.Damage(AttackDame);
+            if (hit.transform.position.x < transform.position.x)
+            {
+                hit.Knockbackop(10f, true);
+            }
+            else
+            {
+                hit.Knockbackop( 10f,false);
+            }
         }
     }
     public void EnragedAttack()
@@ -33,7 +42,16 @@ public class BossWeapon : MonoBehaviour
         Collider2D colinfo = Physics2D.OverlapCircle(pos, attackrange, attackmask);
         if (colinfo != null)
         {
-            colinfo.GetComponent<Player>().Damage(AttackDame);
+            Player hit = colinfo.GetComponent<Player>();
+            hit.Damage(enrangeAttackdame);
+            if (hit.transform.position.x < transform.position.x)
+            {
+                hit.Knockbackop(10f, true);
+            }
+            else
+            {
+                hit.Knockbackop(10f, false);
+            }
         }
     }
 }

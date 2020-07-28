@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
+    private enum State { idle, hurt }
+    private State state = State.idle;
     public float speed = 50f, maxspeed = 3f, jumpPow = 230f;
     public bool grounded = true, faceright = true, doublejump = false;
 
@@ -74,30 +75,11 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        float h = Input.GetAxis("Horizontal");
-        r2.AddForce((Vector2.right) * speed * h);
-
-        if (r2.velocity.x > maxspeed)
-            r2.velocity = new Vector2(maxspeed, r2.velocity.y);
-        if (r2.velocity.x < -maxspeed)
-            r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
-        ////giới hạn nhảy
-        //if (r2.velocity.y > maxjump)
-        //    r2.velocity = new Vector2(r2.velocity.x, maxjump);
-        //if (r2.velocity.y < -maxjump)
-        //    r2.velocity = new Vector2(r2.velocity.x, -maxjump);
-
-        if (h > 0 && !faceright)
+        if (state != State.hurt)
         {
-            Flip();
-            healthBar.checkScale();
+            move();
         }
-
-        if (h < 0 && faceright)
-        {
-            Flip();
-            healthBar.checkScale();
-        }
+        animationstate();
         // giảm ma sát(giảm tốc độ)
         if (grounded)
         {
@@ -121,6 +103,28 @@ public class Player : MonoBehaviour
         if (ourHealth <= 0)
         {          
             Death();
+        }
+    }
+    private void move()
+    {
+        float h = Input.GetAxis("Horizontal");
+        r2.AddForce((Vector2.right) * speed * h);
+
+        if (r2.velocity.x > maxspeed)
+            r2.velocity = new Vector2(maxspeed, r2.velocity.y);
+        if (r2.velocity.x < -maxspeed)
+            r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
+       
+        if (h > 0 && !faceright)
+        {
+            Flip();
+            healthBar.checkScale();
+        }
+
+        if (h < 0 && faceright)
+        {
+            Flip();
+            healthBar.checkScale();
         }
     }
     public void Flip()
@@ -155,16 +159,18 @@ public class Player : MonoBehaviour
         r2.AddForce(new Vector2(Knockdir.x * -35, Knockdir.y * Knockpow));//(-40 độ giật lùi khi chạm bẫy)
     }
     //End Bẫy chông
-    public void Knockbackop(float Knockpow, Vector2 Knockdir, bool knockFromRight)//thay đổi độ bật lùi dựa knockdir và knockpow
+    public void Knockbackop(float Knockpow, bool knockFromRight)//thay đổi độ bật lùi dựa knockdir và knockpow
     {
         r2.velocity = new Vector2(0, 0);
+        state = State.hurt;
         if (knockFromRight)
         {
-            r2.AddForce(new Vector2(Knockdir.x * Knockpow, Knockdir.y * -50));
+
+            r2.velocity = new Vector2(-Knockpow, transform.position.y);
         }
-        if (!knockFromRight)
+        else
         {
-            r2.AddForce(new Vector2(Knockdir.x * Knockpow, Knockdir.y * 50));
+            r2.velocity = new Vector2(Knockpow, transform.position.y);
         }
     }
     //End Knockback người chơi chạm quái
@@ -237,5 +243,17 @@ public class Player : MonoBehaviour
         maxspeed = 3f;
         speed = 50f;
         yield return 0;
+    }
+    private void animationstate()
+    {
+        if (state == State.hurt)
+        {
+            if (Mathf.Abs(r2.velocity.x) < 3f)
+            {
+                state = State.idle;
+            }
+
+        }
+
     }
 }

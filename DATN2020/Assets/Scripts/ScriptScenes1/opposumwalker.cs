@@ -75,11 +75,11 @@ public class opposumwalker : MonoBehaviour
            //knock khi chạm
             if (col.transform.position.x < transform.position.x)
             {
-                player.Knockbackop(-600f, player.transform.position, true);//50f
+                player.Knockbackop(10f, true);//50f
             }
             else
             {
-                player.Knockbackop(600f, player.transform.position, false);             
+                player.Knockbackop(10f, false);             
             }
         }
     }
