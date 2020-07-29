@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class opposumwalker : MonoBehaviour
 {
+    private enum State { run, knock }
+    private State state = State.run;
     public float speed = 1f;
     public Rigidbody2D myBody;
     public Transform startPos, endPos;
@@ -59,7 +61,11 @@ public class opposumwalker : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        if (state != State.knock)
+        {
+            Move();
+        }
+
         ChangeDirection();
     }
     private void Move()
@@ -102,15 +108,22 @@ public class opposumwalker : MonoBehaviour
     //người chơi chém vào quái
     public void Knockbackscreep()
     {
+        state = State.knock;
         Vector2 temp = gameObject.transform.position;
         if (player.faceright == true)
         {
-            myBody.AddForce(new Vector2(temp.x * 400f, temp.y));
+            myBody.velocity = new Vector2(3f, 0);
         }
         else
         {
-            myBody.AddForce(new Vector2(temp.x * -400f, temp.y));//khi quay đầu
+            myBody.velocity = new Vector2(-3f, 0);
         }
+        StartCoroutine(wait());
+    }
+    public IEnumerator wait()
+    {
+        yield return new WaitForSeconds(.2f);
+        state = State.run;
     }
     public void Boom()
     {

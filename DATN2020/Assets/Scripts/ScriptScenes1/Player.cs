@@ -166,11 +166,11 @@ public class Player : MonoBehaviour
         if (knockFromRight)
         {
 
-            r2.velocity = new Vector2(-Knockpow, transform.position.y);
+            r2.velocity = new Vector2(-Knockpow, 1);
         }
         else
         {
-            r2.velocity = new Vector2(Knockpow, transform.position.y);
+            r2.velocity = new Vector2(Knockpow, 1);
         }
     }
     //End Knockback người chơi chạm quái
