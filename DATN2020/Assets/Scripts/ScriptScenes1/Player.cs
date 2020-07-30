@@ -161,16 +161,27 @@ public class Player : MonoBehaviour
     //End Bẫy chông
     public void Knockbackop(float Knockpow, bool knockFromRight)//thay đổi độ bật lùi dựa knockdir và knockpow
     {
-        r2.velocity = new Vector2(0, 0);
+       
+        doublejump = false;
+        //r2.velocity = new Vector2(0, 0);
         state = State.hurt;
         if (knockFromRight)
         {
-
-            r2.velocity = new Vector2(-Knockpow, 1);
-        }
+            if (r2.velocity.y != 0)
+            {
+                r2.velocity = new Vector2(-Knockpow + 5f, 4f);
+            }
+            else
+                r2.velocity = new Vector2(-Knockpow, 1);
+        } 
         else
         {
-            r2.velocity = new Vector2(Knockpow, 1);
+            if (r2.velocity.y != 0)
+            {
+                r2.velocity = new Vector2(Knockpow - 5f, 4f);
+            }
+           else
+                r2.velocity = new Vector2(Knockpow, 1);
         }
     }
     //End Knockback người chơi chạm quái
