@@ -5,22 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 public class warning : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject dialogBox;
-   // public Text dialogText,dialogText2;
+    // public Text dialogText,dialogText2;
     //public string dialog;
     public bool dialogActive;
     public bool playerInRange;
-
-  
 
     // Update is called once per frame
     void Update()
     {
         if (playerInRange)
         {
-            dialogBox.SetActive(true);
-           // dialogText.text = dialog;
+            dialogBox.SetActive(true);        
         }
     }
     private void OnTriggerEnter2D(Collider2D col)

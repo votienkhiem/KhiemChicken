@@ -17,9 +17,12 @@ public class Gamemaster : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       // PlayerPrefs.DeleteAll(); xóa bộ nhớ đệm điểm cao
+       //PlayerPrefs.DeleteAll();// xóa bộ nhớ đệm điểm cao
         Hightext.text = ("HighScore: " + PlayerPrefs.GetInt("highscore"));
         highscore = PlayerPrefs.GetInt("highscore", 0);
+        // gán highscore lại bằng 0
+        //PlayerPrefs.SetInt("highscore", 0);
+        //highscore = 0;
         if (PlayerPrefs.HasKey("points"))
         {
             Scene ActiveScreen = SceneManager.GetActiveScene();

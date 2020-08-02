@@ -61,7 +61,6 @@ public class opposum2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
         if (state != State.knock)
         {
             Move();
@@ -76,6 +75,18 @@ public class opposum2 : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D col)
     {
+        //if (col.gameObject.tag == "Player")
+        //{
+        //    player.Damage(20); //mất 20 máu
+        //    if (col.transform.position.x < transform.position.x)
+        //    {
+        //        player.Knockbackop(-100f, player.transform.position, true);
+        //    }
+        //    else
+        //    {
+        //        player.Knockbackop(70f, player.transform.position, false);
+        //    }
+        //}
         if (col.gameObject.tag == "Player")
         {
             player.Damage(20); //mất 20 máu
@@ -86,7 +97,7 @@ public class opposum2 : MonoBehaviour
             }
             else
             {
-                player.Knockbackop(10f,false);
+                player.Knockbackop(10f, false);
             }
         }
     }
@@ -108,8 +119,17 @@ public class opposum2 : MonoBehaviour
     {
         Destroy(gameObject);
     }
-   public void Knockbackscreep()
+    public void Knockbackscreep()
     {
+        //Vector2 temp = gameObject.transform.position;
+        //if (player.faceright == true)
+        //{
+        //    myBody.AddForce(new Vector2(temp.x * 60f, temp.y));
+        //}
+        //else
+        //{
+        //    myBody.AddForce(new Vector2(temp.x * -60f, temp.y));//khi quay đầu
+        //}
         state = State.knock;
         Vector2 temp = gameObject.transform.position;
         if (player.faceright == true)
@@ -122,7 +142,7 @@ public class opposum2 : MonoBehaviour
         }
         StartCoroutine(wait());
     }
-     public IEnumerator wait()
+    public IEnumerator wait()
     {
         yield return new WaitForSeconds(.2f);
         state = State.run;

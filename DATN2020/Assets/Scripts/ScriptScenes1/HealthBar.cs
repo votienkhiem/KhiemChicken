@@ -8,10 +8,10 @@ public class HealthBar : MonoBehaviour
 
     public Slider slider;
     public Vector3 scale;
-    public opposumwalker creep;
     public Gradient gradient;
     public Image fill;
-    public Frog frog;
+    // public Frog frog;
+    //  public opposumwalker creep;
     public void Start()
     {
        // creep = GameObject.FindGameObjectWithTag("Enemy").GetComponent<opposumwalker>();

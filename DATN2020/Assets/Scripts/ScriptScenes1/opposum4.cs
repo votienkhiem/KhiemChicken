@@ -66,7 +66,6 @@ public class opposum4 : MonoBehaviour
         {
             Move();
         }
-
         ChangeDirection();
     }
     private void Move()
@@ -76,6 +75,18 @@ public class opposum4 : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D col)
     {
+        //if (col.gameObject.tag == "Player")
+        //{
+        //    player.Damage(20); //mất 20 máu
+        //    if (col.transform.position.x < transform.position.x)
+        //    {
+        //        player.Knockbackop(-90f, player.transform.position, true);
+        //    }
+        //    else
+        //    {
+        //        player.Knockbackop(90f, player.transform.position, false);
+        //    }
+        //}
         if (col.gameObject.tag == "Player")
         {
             player.Damage(20); //mất 20 máu
@@ -110,6 +121,15 @@ public class opposum4 : MonoBehaviour
     }
     public void Knockbackscreep()
     {
+        //Vector2 temp = gameObject.transform.position;
+        //if (player.faceright == true)
+        //{
+        //    myBody.AddForce(new Vector2(temp.x * 70f, temp.y));
+        //}
+        //else
+        //{
+        //    myBody.AddForce(new Vector2(temp.x * -70f, temp.y));//khi quay đầu
+        //}
         state = State.knock;
         Vector2 temp = gameObject.transform.position;
         if (player.faceright == true)

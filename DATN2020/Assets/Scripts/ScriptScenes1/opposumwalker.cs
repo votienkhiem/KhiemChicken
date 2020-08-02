@@ -65,7 +65,6 @@ public class opposumwalker : MonoBehaviour
         {
             Move();
         }
-
         ChangeDirection();
     }
     private void Move()
@@ -75,17 +74,30 @@ public class opposumwalker : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D col)
     {
+        //if (col.gameObject.tag == "Player")
+        //{
+        //    player.Damage(20); //mất 20 máu
+        //                       //knock khi chạm
+        //    if (col.transform.position.x < transform.position.x)
+        //    {
+        //        player.Knockbackop(-600f, player.transform.position, true);//50f
+        //    }
+        //    else
+        //    {
+        //        player.Knockbackop(600f, player.transform.position, false);
+        //    }
+        //}
         if (col.gameObject.tag == "Player")
         {
             player.Damage(20); //mất 20 máu
-           //knock khi chạm
+            //player.KnockbackOpposum(200f, player.transform.position);
             if (col.transform.position.x < transform.position.x)
             {
-                player.Knockbackop(10f, true);//50f
+                player.Knockbackop(10f, true);
             }
             else
             {
-                player.Knockbackop(10f, false);             
+                player.Knockbackop(10f, false);
             }
         }
     }
@@ -108,6 +120,15 @@ public class opposumwalker : MonoBehaviour
     //người chơi chém vào quái
     public void Knockbackscreep()
     {
+        //Vector2 temp = gameObject.transform.position;
+        //if (player.faceright == true)
+        //{
+        //    myBody.AddForce(new Vector2(temp.x * 400f, temp.y));
+        //}
+        //else
+        //{
+        //    myBody.AddForce(new Vector2(temp.x * -400f, temp.y));//khi quay đầu
+        //}
         state = State.knock;
         Vector2 temp = gameObject.transform.position;
         if (player.faceright == true)

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     private enum State { idle, hurt }
     private State state = State.idle;
+    //
     public float speed = 50f, maxspeed = 3f, jumpPow = 230f;
     public bool grounded = true, faceright = true, doublejump = false;
 
@@ -30,7 +31,6 @@ public class Player : MonoBehaviour
     public bool immortal = false;
     //âm thanh
     public SoundManager sound;
-
 
     // Use this for initialization
     void Start()
@@ -77,20 +77,31 @@ public class Player : MonoBehaviour
     {
         if (state != State.hurt)
         {
-            move();
+            Move();
         }
         animationstate();
+        //float h = Input.GetAxis("Horizontal");
+        //r2.AddForce((Vector2.right) * speed * h);
+        //if (r2.velocity.x > maxspeed)
+        //    r2.velocity = new Vector2(maxspeed, r2.velocity.y);
+        //if (r2.velocity.x < -maxspeed)
+        //    r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
+        //if (h > 0 && !faceright)
+        //{
+        //    Flip();
+        //    healthBar.checkScale();
+        //}
+        //if (h < 0 && faceright)
+        //{
+        //    Flip();
+        //    healthBar.checkScale();
+        //}
+
         // giảm ma sát(giảm tốc độ)
         if (grounded)
         {
             r2.velocity = new Vector2(r2.velocity.x * 0.9f, r2.velocity.y);
-        }
-        //máu nhỏ 0 sẽ chết
-        //if (ourHealth <= 0)
-        //{
-        //    Death();
-        //}
-        //mạng <=0 chết
+        }       
         if (newhealth < 0)
         {
             sound.Playsound("herodie");
@@ -99,13 +110,12 @@ public class Player : MonoBehaviour
             healthBar.SetMaxHealth(newhealth);
             StartCoroutine(BatTu());
         }
-
         if (ourHealth <= 0)
         {          
             Death();
         }
     }
-    private void move()
+    private void Move()
     {
         float h = Input.GetAxis("Horizontal");
         r2.AddForce((Vector2.right) * speed * h);
@@ -114,7 +124,7 @@ public class Player : MonoBehaviour
             r2.velocity = new Vector2(maxspeed, r2.velocity.y);
         if (r2.velocity.x < -maxspeed)
             r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
-       
+
         if (h > 0 && !faceright)
         {
             Flip();
@@ -143,7 +153,7 @@ public class Player : MonoBehaviour
     }
     //Start Bẫy chông
     public void Damage(int damage)
-    {
+    {     
         // ourHealth -= damage;
         if (immortal != true) 
         {
@@ -159,9 +169,21 @@ public class Player : MonoBehaviour
         r2.AddForce(new Vector2(Knockdir.x * -35, Knockdir.y * Knockpow));//(-40 độ giật lùi khi chạm bẫy)
     }
     //End Bẫy chông
+    //Start Knockback người chơi chạm quái
+    //public void Knockbackop(float Knockpow, Vector2 Knockdir, bool knockFromRight)//thay đổi độ bật lùi dựa knockdir và knockpow
+    //{
+    //    r2.velocity = new Vector2(0, 0);
+    //    if (knockFromRight)
+    //    {
+    //        r2.AddForce(new Vector2(Knockdir.x * Knockpow, Knockdir.y * -50));
+    //    }
+    //    if (!knockFromRight)
+    //    {
+    //        r2.AddForce(new Vector2(Knockdir.x * Knockpow, Knockdir.y * 50));
+    //    }
+    //}
     public void Knockbackop(float Knockpow, bool knockFromRight)//thay đổi độ bật lùi dựa knockdir và knockpow
     {
-       
         doublejump = false;
         //r2.velocity = new Vector2(0, 0);
         state = State.hurt;
@@ -173,14 +195,14 @@ public class Player : MonoBehaviour
             }
             else
                 r2.velocity = new Vector2(-Knockpow, 1);
-        } 
+        }
         else
         {
             if (r2.velocity.y != 0)
             {
                 r2.velocity = new Vector2(Knockpow - 5f, 4f);
             }
-           else
+            else
                 r2.velocity = new Vector2(Knockpow, 1);
         }
     }
@@ -238,9 +260,10 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.name.Equals("Movingplat"))
+        {
             this.transform.parent = col.transform;
-    }
-
+        }      
+    }   
     void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.name.Equals("Movingplat"))
@@ -263,8 +286,6 @@ public class Player : MonoBehaviour
             {
                 state = State.idle;
             }
-
         }
-
     }
 }

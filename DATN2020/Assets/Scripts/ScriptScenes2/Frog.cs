@@ -107,7 +107,6 @@ public class Frog : MonoBehaviour
     }
     void Damage(int damage)
     {
-
         maxHealth -= damage;
         healthBar.SetHealth(maxHealth);
     }
@@ -127,18 +126,30 @@ public class Frog : MonoBehaviour
     //knockback player
     public void OnCollisionEnter2D(Collision2D col)
     {
+        //if (col.gameObject.tag == "Player")
+        //{
+        //    player.Damage(30); //mất 20 máu
+
+        //    if (col.transform.position.x > transform.position.x)
+        //    {
+        //        player.Knockbackop(30f, player.transform.position, false);
+        //    }
+        //    else
+        //    {
+        //        player.Knockbackop(-30f, player.transform.position, true);
+        //    }
+        //}
         if (col.gameObject.tag == "Player")
         {
             player.Damage(30); //mất 20 máu
-            
-            if (col.transform.position.x > transform.position.x)
+            //player.KnockbackOpposum(200f, player.transform.position);
+            if (col.transform.position.x < transform.position.x)
             {
-                player.Knockbackop(10f, false);
-
+                player.Knockbackop(10f, true);
             }
             else
             {
-                player.Knockbackop(10f, true);
+                player.Knockbackop(10f, false);
             }
         }
     }
