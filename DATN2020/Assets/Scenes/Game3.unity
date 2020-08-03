@@ -6635,6 +6635,7 @@ RectTransform:
   - {fileID: 1127554839}
   - {fileID: 711415795}
   - {fileID: 1104019548}
+  - {fileID: 1767178398}
   m_Father: {fileID: 514097890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7211,13 +7212,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439243596}
-  - {fileID: 1767178398}
   m_Father: {fileID: 519420032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.04, y: 3.25}
+  m_AnchoredPosition: {x: -0.24, y: 3.86}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514097891
@@ -7823,7 +7823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -827, y: 454}
+  m_AnchoredPosition: {x: -817, y: 710}
   m_SizeDelta: {x: 160, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &552191917
@@ -8296,7 +8296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 479, y: 460}
+  m_AnchoredPosition: {x: 489, y: 716}
   m_SizeDelta: {x: 367.12585, y: 258.49738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741355260
@@ -8982,7 +8982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944700174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 0.6, z: 0}
+  m_LocalPosition: {x: -0.108, y: 0.622, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1520428951}
@@ -9045,38 +9045,38 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7003937
-        value: 0.008773804
-        inSlope: 0
-        outSlope: 0
+        time: 0.90253294
+        value: 0.09917355
+        inSlope: 0.5010457
+        outSlope: 0.5010457
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.1827571
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8867924, g: 0.651905, b: 0, a: 1}
+      key0: {r: 0.9150943, g: 0.3237362, b: 0.70293707, a: 1}
       key1: {r: 0.9528302, g: 0.9034784, b: 0.8224902, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 1}
+      key2: {r: 0.955873, g: 0.85767215, b: 0.81373394, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
+      ctime0: 13878
+      ctime1: 36044
+      ctime2: 59367
       ctime3: 0
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
+      atime0: 11758
+      atime1: 31804
+      atime2: 42405
       atime3: 0
       atime4: 0
       atime5: 0
@@ -10152,7 +10152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -403, y: 460}
+  m_AnchoredPosition: {x: -393, y: 716}
   m_SizeDelta: {x: 367.12585, y: 258.49738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310908007
@@ -10709,11 +10709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4210157123753652, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.17
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 4210157123753652, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.53
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 4210157123753652, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11272,7 +11272,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1620228670
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11763,16 +11763,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767178397}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 25, y: 6.666666, z: 1}
   m_Children: []
-  m_Father: {fileID: 514097890}
-  m_RootOrder: 1
+  m_Father: {fileID: 439243596}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.03, y: -0.08}
+  m_AnchoredPosition: {x: -76.399994, y: 0.47999752}
   m_SizeDelta: {x: 1.5, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1767178399
