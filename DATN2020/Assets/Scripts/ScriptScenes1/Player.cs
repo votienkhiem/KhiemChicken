@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     public Gamemaster gm;
     public Cherry cherry;
     public Gem gem;
+    public bool checkGem=true;
     //Kiểm tra bất tử
     public bool immortal = false;
     //âm thanh
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        checkGem = true;
         r2 = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         gm = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent<Gamemaster>();
@@ -208,16 +211,23 @@ public class Player : MonoBehaviour
     }
     //End Knockback người chơi chạm quái
     //Coins
+   
     public void OnTriggerEnter2D(Collider2D col)
     {
         Cherry cherry = col.gameObject.GetComponent<Cherry>();
         Gem gem = col.gameObject.GetComponent<Gem>();
-
+        
         if (col.CompareTag("Coins"))//Chạm trái cây có tag là coins
-        {        
-            gm.points += 100;// cộng điểm
-            cherry.Boom();//thay đổi animation nổ
-            sound.Playsound("coins");
+        {
+            if (checkGem == true)
+            {
+                StartCoroutine(chotime());
+                gm.points += 100;// cộng điểm 
+                cherry.Boom();//thay đổi animation nổ
+                sound.Playsound("coins");
+                
+            }       
+          
         }      
         if (col.CompareTag("CoinsDiamond"))
         {
@@ -246,7 +256,14 @@ public class Player : MonoBehaviour
         }
     }
     //Endcoins
+    public IEnumerator chotime()
+    {
+        checkGem = false;
+        yield return new WaitForSeconds(.3f);
+        checkGem = true;
+    }
     //Start Bất tử
+    
     public IEnumerator BatTu()
     {
         if(!immortal)
